@@ -18,6 +18,7 @@ jobs:
         repository: rlex/freetakserver
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        tags: latest
         tag_with_ref: true
         tag_with_sha: false
         cache_froms: rlex/freetakserver:latest
