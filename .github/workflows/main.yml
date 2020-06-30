@@ -3,7 +3,8 @@ name: Build and Publish
 on:
   push:
     tags:
-      - "\\d+(?:\\.\\d+)+"
+      - "[0-9]+.[0-9]+.[0-9]+"
+      - "[0-9]+.[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   build:
