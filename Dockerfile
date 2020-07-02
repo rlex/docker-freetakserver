@@ -4,7 +4,7 @@ LABEL maintainer "rlex"
 ENV PYTHONUNBUFFERED=1
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 ENV PIP_NO_CACHE_DIR=1
-ARG FREETAKSERVER_VERSION=0.8.50.1
+ARG FREETAKSERVER_VERSION=0.8.75.1
 RUN apk add --no-cache -U libxslt libxml2 && \
   apk add libxslt-dev libxml2-dev build-base && \
   pip install FreeTAKServer==${FREETAKSERVER_VERSION} && \
@@ -16,7 +16,7 @@ RUN addgroup -g 1000 freetakserver \
 
 # Since we do not have config file (yet) we need to patch distribution files so it points to /data
 # We also can't have that in entrypoint since it requires elevated privileges
-RUN sed -i s=FreeTAKServerDataPackageDataBase.db=/data/FreeTAKServerDataPackageDataBase.db=g /usr/local/lib/python3.8/site-packages/FreeTAKServer/controllers/configuration/DataPackageServerConstants.py && \
+RUN sed -i s=CFreeTAKServerDataPackageDataBase.db=/data/CFreeTAKServerDataPackageDataBase.db=g /usr/local/lib/python3.8/site-packages/FreeTAKServer/controllers/configuration/DataPackageServerConstants.py && \
   sed -i s=FreeTAKServerDataPackageFolder=/data/FreeTAKServerDataPackageFolder=g /usr/local/lib/python3.8/site-packages/FreeTAKServer/controllers/configuration/DataPackageServerConstants.py && \
   sed -i s='logs'='/data/logs'=g /usr/local/lib/python3.8/site-packages/FreeTAKServer/controllers/configuration/LoggingConstants.py
 

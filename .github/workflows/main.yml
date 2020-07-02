@@ -13,12 +13,26 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build and push Docker images
+    - name: Build and push to docker hub
       uses: docker/build-push-action@v1.1.0
       with:
         repository: rlex/freetakserver
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        tags: latest
+        tag_with_ref: true
+        tag_with_sha: false
+        cache_froms: rlex/freetakserver:latest
+        add_git_labels: true
+        push: true
+
+    - name: Build and publish to github packages
+      uses: docker/build-push-action@v1.1.0
+      with:
+        registry: docker.pkg.github.com
+        repository: rlex/docker-freetakserver
+        username: ${{ github.actor }}
+        password: ${{ secrets.GH_TOKEN }}
         tags: latest
         tag_with_ref: true
         tag_with_sha: false
