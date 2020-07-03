@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v1.1.0
       with:
         registry: docker.pkg.github.com
-        repository: rlex/docker-freetakserver
+        repository: rlex/docker-freetakserver/freetakserver
         username: ${{ github.actor }}
         password: ${{ secrets.GH_TOKEN }}
         tags: latest
