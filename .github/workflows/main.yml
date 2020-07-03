@@ -11,7 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Build docker image
+      run: docker build . -t rlex/freetakserver:${{ github.sha }}
+
+    - name: Run container-scan
+      uses: Azure/container-scan@v0
+      with:
+        image-name: rlex/freetakserver:${{ github.sha }}
 
     - name: Build and push to docker hub
       uses: docker/build-push-action@v1.1.0
