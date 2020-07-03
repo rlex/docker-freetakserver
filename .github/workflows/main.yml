@@ -31,7 +31,7 @@ jobs:
         tags: latest
         tag_with_ref: true
         tag_with_sha: false
-        cache_froms: rlex/freetakserver:latest
+        cache_froms: rlex/freetakserver:${{ github.sha }}
         add_git_labels: true
         push: true
 
@@ -45,6 +45,6 @@ jobs:
         tags: latest
         tag_with_ref: true
         tag_with_sha: false
-        cache_froms: rlex/freetakserver:latest
+        cache_froms: rlex/freetakserver:${{ github.sha }}
         add_git_labels: true
         push: true
