@@ -6,12 +6,15 @@ if ! touch /data/.verify_access; then
   exit 2
 fi
 
+#FTS doesn't pre-create logs directory
 mkdir -pv /data/logs
 
+FTS_ARGS=""
+
 #set external IP if it's provided via ENV variables
-if [ -z ${DATAPACKAGE_SERVER_IP} ]; then
+if [ -z ${FTS_ARGS} ]; then
   python -m FreeTAKServer.controllers.FTS
 else
-  echo "IP Defined: ${DATAPACKAGE_SERVER_IP}"
-  python -m FreeTAKServer.controllers.FTS -IP ${DATAPACKAGE_SERVER_IP}
+  echo "IP Defined: ${FTS_ARGS}"
+  python -m FreeTAKServer.controllers.FTS ${FTS_ARGS}
 fi

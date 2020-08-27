@@ -20,7 +20,7 @@ RUN sed -i s=FreeTAKServerDataPackageDataBase.db=/data/FreeTAKServerDataPackageD
   sed -i s=FreeTAKServerDataPackageFolder=/data/FreeTAKServerDataPackageFolder=g /usr/local/lib/python3.8/site-packages/FreeTAKServer/controllers/configuration/DataPackageServerConstants.py && \
   sed -i s='logs'='/data/logs'=g /usr/local/lib/python3.8/site-packages/FreeTAKServer/controllers/configuration/LoggingConstants.py
 
-ENV DATAPACKAGE_SERVER_IP=""
+ENV FTS_ARGS=""
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 EXPOSE 8087 8080
 VOLUME ["/data"]
