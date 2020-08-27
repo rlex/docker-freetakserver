@@ -4,7 +4,7 @@ LABEL maintainer "rlex"
 ENV PYTHONUNBUFFERED=1
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 ENV PIP_NO_CACHE_DIR=1
-ARG FREETAKSERVER_VERSION=0.8.76
+ARG FREETAKSERVER_VERSION=1.0.3
 RUN apk add --no-cache -U libxslt libxml2 && \
   apk add --no-cache libxslt-dev libxml2-dev build-base && \
   pip install FreeTAKServer==${FREETAKSERVER_VERSION} && \
