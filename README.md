@@ -1,3 +1,5 @@
+_Archived, unmaintained, please use official [FreeTakServer image](https://github.com/FreeTAKTeam/FreeTAKServer-Docker) instead_
+
 Docker image for [FreeTakServer](https://github.com/tapawingo/freetakserver)  
 Since FTS is heavy work in progress project, there might be bugs, but generally image should be working.  
 FTS exposes ports 8080 and 8087.  
